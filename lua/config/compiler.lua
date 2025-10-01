@@ -13,6 +13,8 @@ vim.keymap.set("n", "<leader>tr", function()
     cmd = string.format("g++ '%s' -std=c++17 -O2 -Wall -o '%s' && '%s'", file, file_noext, file_noext)
   elseif ext == "py" then
     cmd = string.format("python3 '%s'", file)
+  elseif ext == "go" then
+    cmd = string.format("go run '%s'", file)
   else
     print("Unsupported file type: " .. ext)
     return
