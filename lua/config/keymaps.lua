@@ -12,3 +12,13 @@ vim.keymap.set("n", "<leader>ct", function()
     vim.cmd("colorscheme PaperColor")
   end
 end, { noremap = true, silent = true })
+
+-- Comment toggle with <leader>/
+vim.keymap.set("n", "<leader>/", function()
+  require("Comment.api").toggle.linewise.current()
+end, { desc = "Toggle comment line" })
+
+vim.keymap.set("v", "<leader>/", function()
+  -- In visual mode, toggle comment for selection
+  require("Comment.api").toggle.linewise(vim.fn.visualmode())
+end, { desc = "Toggle comment selection" })
